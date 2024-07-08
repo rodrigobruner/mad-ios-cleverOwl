@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TodoListTableViewController: UITableViewController {
     
@@ -17,6 +18,20 @@ class TodoListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reload()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAddTask), name: NSNotification.Name("DidUpdateData"), object: nil)
+    }
+    
+    //Observe changes in todoList
+    @objc func handleAddTask() {
+        self.todoList = loadTodoList()
+        let newIndexPath = IndexPath(row: self.todoList.count-1, section: 0)
+        self.tableView.insertRows(at: [newIndexPath], with: .fade)
+//        print("Update")
+//        print(self.todoList.last)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func reload(){
@@ -25,16 +40,18 @@ class TodoListTableViewController: UITableViewController {
         
         appSettings = loadAppSettings()
 //        print(appSettings)
-        
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+       
     }
     
-    func AddNewTask(todo:Todo){
-        print(todo)
-        self.todoList.append(todo)
-        saveTodoList(self.todoList)
-        reload()
+    
+    @IBAction func addButton(_ sender: Any) {
+        print("Add")
+        tabBarController!.selectedIndex = 1
     }
+    
     
     //Return number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,15 +71,4 @@ class TodoListTableViewController: UITableViewController {
         cell.textLabel?.text = todo.title
         return cell
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
-
-
-

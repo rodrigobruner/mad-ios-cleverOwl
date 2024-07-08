@@ -31,7 +31,19 @@
                             <outlet property="delegate" destination="Tdb-tu-3II" id="ypM-nt-YhL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todo list" largeTitleDisplayMode="always" id="fBQ-LB-eBf"/>
+                    <navigationItem key="navigationItem" title="Todo list" largeTitleDisplayMode="always" id="fBQ-LB-eBf">
+                        <barButtonItem key="rightBarButtonItem" title=" AddButtonArea" image="plus" catalog="system" style="plain" id="in2-u8-6wa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="014-0N-4MU">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                            </button>
+                            <connections>
+                                <action selector="addButton:" destination="Tdb-tu-3II" id="FNW-uI-68k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="br2-c7-kZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,6 +294,7 @@
     <resources>
         <image name="checklist" catalog="system" width="128" height="107"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="slider.horizontal.2.square.on.square" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

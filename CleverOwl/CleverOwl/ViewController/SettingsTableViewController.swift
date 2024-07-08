@@ -28,9 +28,8 @@ class SettingsTableViewController: UITableViewController {
                 isOn:self.appSettings.grupedByCategory,
                 handler: {
                     self.appSettings.grupedByCategory = !self.appSettings.grupedByCategory
-                    print("Config")
-                    print(self.appSettings)
                     saveAppSettings(self.appSettings)
+                    
                     if let vc = self.storyboard?.instantiateViewController(identifier: "todoListScreen") as? ViewController {
                         vc.viewDidLoad()
                         vc.viewWillAppear(true)

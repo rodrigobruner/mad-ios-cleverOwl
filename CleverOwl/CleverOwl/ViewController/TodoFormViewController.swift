@@ -172,12 +172,20 @@ class TodoFormViewController: UIViewController {
                         dueDate: dueDate,
                         isComplete: false,
                         isImportant: isImportant)
+        var todoList = loadTodoList()
+        todoList.append(todo)
+        saveTodoList(todoList)
         
+       //Update VC
+//        if let vc = storyboard?.instantiateViewController(identifier: "todoListScreen") as? TodoListTableViewController {
+//            //vc.AddNewTask(todo: todo)
+//            vc.todoList.append(todo)
+//            let newIndexPath = IndexPath(row: vc.todoList.count-1, section: 0)
+//            vc.tableView.insertRows(at: [newIndexPath], with: .fade)
+//            saveTodoList(vc.todoList)
+//        }
+        NotificationCenter.default.post(name: NSNotification.Name("DidUpdateData"), object: nil)
         resetForm()
-        if let vc = storyboard?.instantiateViewController(identifier: "todoListScreen") as? TodoListTableViewController {
-            vc.AddNewTask(todo: todo)
-        }
-        
         self.tabBarController!.selectedIndex = 0
     }
     
