@@ -33,7 +33,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Todo list" largeTitleDisplayMode="always" id="fBQ-LB-eBf">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="mLV-u0-zzB">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gtp-cg-AMj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gtp-cg-AMj">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -273,6 +273,37 @@
             </objects>
             <point key="canvasLocation" x="1623.6641221374045" y="860.56338028169023"/>
         </scene>
+        <!--Categories-->
+        <scene sceneID="whZ-nF-Pvg">
+            <objects>
+                <tableViewController storyboardIdentifier="categoryList" title="Categories" id="2PJ-Yd-7MR" customClass="CategoryTableViewController" customModule="CleverOwl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="kSB-EA-BlL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryListCell" id="oVn-Ah-veK">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oVn-Ah-veK" id="CrJ-Rz-9de">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2PJ-Yd-7MR" id="DOT-Ko-BK6"/>
+                            <outlet property="delegate" destination="2PJ-Yd-7MR" id="eIk-DO-d6Q"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="kSB-EA-BlL" id="oh5-uT-9e0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0o-Yh-UY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="861"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="MIj-kA-aJf">
             <objects>
@@ -289,6 +320,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8H-RJ-jPJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1624" y="139"/>
+        </scene>
+        <!--Add new category-->
+        <scene sceneID="5Z3-jT-yKJ">
+            <objects>
+                <viewController storyboardIdentifier="categoryForm" title="Add new category" id="cPF-yn-4dR" customClass="CategoryFormViewController" customModule="CleverOwl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2LS-ea-3WT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF4-ID-pvJ">
+                                <rect key="frame" x="20" y="59" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="InH-oT-YNk">
+                                <rect key="frame" x="20" y="90" width="353" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZu-hj-0jv">
+                                <rect key="frame" x="20" y="139" width="353" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select a color"/>
+                                <connections>
+                                    <action selector="selectColor:" destination="cPF-yn-4dR" eventType="touchUpInside" id="qTH-ba-kGP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-gS-G7Z">
+                                <rect key="frame" x="142" y="294" width="109" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select icon"/>
+                                <connections>
+                                    <action selector="selectIcon:" destination="cPF-yn-4dR" eventType="touchUpInside" id="WnR-kS-DaO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hec-FP-HSB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hec-FP-HSB" firstAttribute="trailing" secondItem="InH-oT-YNk" secondAttribute="trailing" constant="20" id="9aT-k0-hrf"/>
+                            <constraint firstItem="hec-FP-HSB" firstAttribute="trailing" secondItem="DF4-ID-pvJ" secondAttribute="trailing" constant="20" id="BBu-7e-OIf"/>
+                            <constraint firstItem="DF4-ID-pvJ" firstAttribute="leading" secondItem="hec-FP-HSB" secondAttribute="leading" constant="20" id="Ha1-RX-uxc"/>
+                            <constraint firstItem="DF4-ID-pvJ" firstAttribute="top" secondItem="hec-FP-HSB" secondAttribute="top" id="ITs-VS-42i"/>
+                            <constraint firstItem="InH-oT-YNk" firstAttribute="leading" secondItem="hec-FP-HSB" secondAttribute="leading" constant="20" id="Q1X-mW-8MQ"/>
+                            <constraint firstItem="hec-FP-HSB" firstAttribute="trailing" secondItem="pZu-hj-0jv" secondAttribute="trailing" constant="20" id="bYw-wb-4sY"/>
+                            <constraint firstItem="InH-oT-YNk" firstAttribute="top" secondItem="DF4-ID-pvJ" secondAttribute="bottom" constant="10" id="gzr-Hs-vIA"/>
+                            <constraint firstItem="pZu-hj-0jv" firstAttribute="top" secondItem="InH-oT-YNk" secondAttribute="bottom" constant="15" id="mEF-yO-94o"/>
+                            <constraint firstItem="pZu-hj-0jv" firstAttribute="leading" secondItem="hec-FP-HSB" secondAttribute="leading" constant="20" id="oJ5-Vw-edq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonColor" destination="pZu-hj-0jv" id="jyd-am-2bN"/>
+                        <outlet property="textName" destination="InH-oT-YNk" id="5hL-aC-yFB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6VA-5D-YnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="139"/>
         </scene>
     </scenes>
     <resources>

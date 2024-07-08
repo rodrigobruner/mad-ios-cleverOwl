@@ -163,15 +163,41 @@ class TodoListTableViewController: UITableViewController {
             tableView.beginUpdates()
             
             if self.appSettings.grupedByCategory {
-                //FIX return count
+                
+                // Remove from todo List
+                let todo = self.groupedTodos[self.categoryKeys[indexPath.section]]![indexPath.row]
+                let todoListKey = self.todoList.firstIndex(where: { $0.uid == todo.uid });
+                if todoListKey! > -1 {
+                    self.todoList[todoListKey!].isComplete = true
+                }
+                
+                self.groupedTodos[todo.category.name]?[indexPath.row].isComplete = true
+                
+//                print("DEBUG -----------------------------------")
+//                print(todo)
+//                print("-----------------------------------------")
+//                print("Todo list Key: \(todoListKey)")
+//                print(todoList[todoListKey!])
+//                print("row:\(indexPath.row) | Section:\(indexPath.section)")
+                
+                
+                if !self.appSettings.showCompletedTasks {
+                    tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
+                    
+                    let category = self.categoryKeys[indexPath.section]
+                    guard var tasksInCategory = self.groupedTodos[category] else { return }
+                    if tasksInCategory.isEmpty {
+                        self.groupedTodos.removeValue(forKey: category)
+                        self.categoryKeys = self.groupedTodos.keys.sorted()
+                        tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+                    }
+                }
             } else {
                 self.todoList[indexPath.row].completedAt = Date()
                 self.todoList[indexPath.row].isComplete = true;
                 self.reload()
             }
             saveTodoList(self.todoList)
-            
-            tableView.reloadData()
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
@@ -187,24 +213,36 @@ class TodoListTableViewController: UITableViewController {
             tableView.beginUpdates()
             
             if appSettings.grupedByCategory {
-                //FIX return count
-                let indexPathToRemove = IndexPath(row: indexPath.row, section: indexPath.section)
+                
+                // Remove from todo List
                 let todo = groupedTodos[categoryKeys[indexPath.section]]![indexPath.row]
+                let todoListKey = todoList.firstIndex(where: { $0.uid == todo.uid });
+                if todoListKey! > -1 {
+                    todoList.remove(at: todoListKey!)
+                }
                 
-               
+                groupedTodos[todo.category.name]?.remove(at: indexPath.row)
                 
-                print("DEBUG -----------------------------------")
-                print(todo)
+//                print("DEBUG -----------------------------------")
+//                print(todo)
+//                print("-----------------------------------------")
+//                print("Todo list Key: \(todoListKey)")
+//                print(todoList[todoListKey!])
+//                print("row:\(indexPath.row) | Section:\(indexPath.section)")
                 
-                //                tableView.deleteRows(at: [indexPathToRemove], with: .automatic)
-//                if categoryKeys[indexPath.section].isEmpty {
-//                    categoryKeys.remove(at: indexPath.section)
-//                    tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
-//                }
+                
+                tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
+                
+                let category = categoryKeys[indexPath.section]
+                guard var tasksInCategory = groupedTodos[category] else { return }
+                if tasksInCategory.isEmpty {
+                    groupedTodos.removeValue(forKey: category)
+                    categoryKeys = groupedTodos.keys.sorted()
+                    tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+                }
+                
             } else {
                 todoList.remove(at: indexPath.row)
-                reload();
-                
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             saveTodoList(todoList)

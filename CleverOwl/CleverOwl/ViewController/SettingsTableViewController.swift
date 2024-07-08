@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appSettings = loadAppSettings()
         loadSettings()
     }
     
@@ -23,33 +24,34 @@ class SettingsTableViewController: UITableViewController {
             SettingsOption(
                 title: "Grouped by category",
                 icon: UIImage(systemName: "rectangle.3.group.fill"),
-                iconBackgroundColor: UIColor.blue,
+                iconBackgroundColor: UIColor(named: "primary"),
                 isASwitch:true,
                 isOn:self.appSettings.grupedByCategory,
                 handler: {
                     self.appSettings.grupedByCategory = !self.appSettings.grupedByCategory
                     saveAppSettings(self.appSettings)
-                    
-                    if let vc = self.storyboard?.instantiateViewController(identifier: "todoListScreen") as? ViewController {
-                        vc.viewDidLoad()
-                        vc.viewWillAppear(true)
-                    }
+                    self.restartApp()
                 }),
             SettingsOption(
                 title: "Show completed tasks",
                 icon: UIImage(systemName: "eye.slash.fill"),
-                iconBackgroundColor: UIColor.blue,
+                iconBackgroundColor: UIColor(named: "primary"),
                 isASwitch:true,
                 isOn:self.appSettings.showCompletedTasks,
                 handler: {
-                    self.appSettings.grupedByCategory = !self.appSettings.grupedByCategory
+                    self.appSettings.showCompletedTasks = !self.appSettings.showCompletedTasks
                     saveAppSettings(self.appSettings)
-                    
-                    if let vc = self.storyboard?.instantiateViewController(identifier: "todoListScreen") as? ViewController {
-                        vc.viewDidLoad()
-                        vc.viewWillAppear(true)
-                    }
+                    self.restartApp()
                 })
+        ]))
+        
+      
+        settingsSections.append(SettingsSection(title: "Manage", options: [
+            SettingsOption(title: "Categories", icon: UIImage(systemName: "tray.fill"), iconBackgroundColor: UIColor(named: "secondary"), handler: {
+                if let vc = self.storyboard?.instantiateViewController(identifier: "categoryList") as? UITableViewController {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                }),
         ]))
         
         
