@@ -32,16 +32,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Todo list" largeTitleDisplayMode="always" id="fBQ-LB-eBf">
-                        <barButtonItem key="rightBarButtonItem" title=" AddButtonArea" image="plus" catalog="system" style="plain" id="in2-u8-6wa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="014-0N-4MU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="mLV-u0-zzB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gtp-cg-AMj">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addNewTask:" destination="Tdb-tu-3II" eventType="touchUpInside" id="KBj-or-VAy"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="addButton:" destination="Tdb-tu-3II" id="FNW-uI-68k"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

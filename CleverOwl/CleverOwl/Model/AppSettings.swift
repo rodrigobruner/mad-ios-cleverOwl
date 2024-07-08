@@ -26,10 +26,15 @@ struct SettingsSection{
 
 struct AppSettings: Codable{
     var grupedByCategory:Bool
+    var showCompletedTasks:Bool
+    var importantFirst:Bool
     var defaultDateFormat:String
     
     static func defaultSettings() -> AppSettings {
-        return AppSettings(grupedByCategory: true, defaultDateFormat: "E, d MMM yyyy HH:mm")
+        return AppSettings(grupedByCategory: true,
+                           showCompletedTasks: false,
+                           importantFirst: true,
+                           defaultDateFormat: "E, d MMM yyyy HH:mm")
     }
 }
 

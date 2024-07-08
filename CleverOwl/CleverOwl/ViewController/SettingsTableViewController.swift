@@ -34,6 +34,21 @@ class SettingsTableViewController: UITableViewController {
                         vc.viewDidLoad()
                         vc.viewWillAppear(true)
                     }
+                }),
+            SettingsOption(
+                title: "Show completed tasks",
+                icon: UIImage(systemName: "eye.slash.fill"),
+                iconBackgroundColor: UIColor.blue,
+                isASwitch:true,
+                isOn:self.appSettings.showCompletedTasks,
+                handler: {
+                    self.appSettings.grupedByCategory = !self.appSettings.grupedByCategory
+                    saveAppSettings(self.appSettings)
+                    
+                    if let vc = self.storyboard?.instantiateViewController(identifier: "todoListScreen") as? ViewController {
+                        vc.viewDidLoad()
+                        vc.viewWillAppear(true)
+                    }
                 })
         ]))
         
