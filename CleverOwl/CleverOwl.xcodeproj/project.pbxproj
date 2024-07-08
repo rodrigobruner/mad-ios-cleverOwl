@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05B6F03D2C3B636500536D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F03C2C3B636500536D4F /* AppDelegate.swift */; };
+		05B6F03F2C3B636500536D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F03E2C3B636500536D4F /* SceneDelegate.swift */; };
+		05B6F0412C3B636500536D4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0402C3B636500536D4F /* ViewController.swift */; };
+		05B6F0442C3B636500536D4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B6F0422C3B636500536D4F /* Main.storyboard */; };
+		05B6F0462C3B636700536D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B6F0452C3B636700536D4F /* Assets.xcassets */; };
+		05B6F0492C3B636700536D4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B6F0472C3B636700536D4F /* LaunchScreen.storyboard */; };
+		05B6F0542C3B636700536D4F /* CleverOwlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0532C3B636700536D4F /* CleverOwlTests.swift */; };
+		05B6F05E2C3B636700536D4F /* CleverOwlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F05D2C3B636700536D4F /* CleverOwlUITests.swift */; };
+		05B6F0602C3B636700536D4F /* CleverOwlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F05F2C3B636700536D4F /* CleverOwlUITestsLaunchTests.swift */; };
+		05B6F0702C3B642600536D4F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F06F2C3B642600536D4F /* AppSettings.swift */; };
+		05B6F0722C3B6AB200536D4F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0712C3B6AB200536D4F /* Todo.swift */; };
+		05B6F0742C3B6ADF00536D4F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0732C3B6ADF00536D4F /* Category.swift */; };
+		05B6F07A2C3B6BA300536D4F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0792C3B6BA300536D4F /* Color.swift */; };
+		05B6F07C2C3B741A00536D4F /* TodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F07B2C3B741A00536D4F /* TodoListTableViewController.swift */; };
+		05B6F07E2C3B7E5E00536D4F /* TodoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F07D2C3B7E5E00536D4F /* TodoFormViewController.swift */; };
+		05B6F0802C3B832000536D4F /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F07F2C3B832000536D4F /* CategoryTableViewCell.swift */; };
+		05B6F0822C3B92D000536D4F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0812C3B92D000536D4F /* SettingsTableViewController.swift */; };
+		05B6F0842C3B962300536D4F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F0832C3B962300536D4F /* SettingsTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05B6F0502C3B636700536D4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B6F0312C3B636500536D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B6F0382C3B636500536D4F;
+			remoteInfo = CleverOwl;
+		};
+		05B6F05A2C3B636700536D4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B6F0312C3B636500536D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B6F0382C3B636500536D4F;
+			remoteInfo = CleverOwl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05B6F0392C3B636500536D4F /* CleverOwl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverOwl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B6F03C2C3B636500536D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		05B6F03E2C3B636500536D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		05B6F0402C3B636500536D4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05B6F0432C3B636500536D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		05B6F0452C3B636700536D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05B6F0482C3B636700536D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05B6F04A2C3B636700536D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05B6F04F2C3B636700536D4F /* CleverOwlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverOwlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B6F0532C3B636700536D4F /* CleverOwlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverOwlTests.swift; sourceTree = "<group>"; };
+		05B6F0592C3B636700536D4F /* CleverOwlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverOwlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B6F05D2C3B636700536D4F /* CleverOwlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverOwlUITests.swift; sourceTree = "<group>"; };
+		05B6F05F2C3B636700536D4F /* CleverOwlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverOwlUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05B6F06F2C3B642600536D4F /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		05B6F0712C3B6AB200536D4F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		05B6F0732C3B6ADF00536D4F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		05B6F0792C3B6BA300536D4F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		05B6F07B2C3B741A00536D4F /* TodoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoListTableViewController.swift; path = CleverOwl/TableViewController/TodoListTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		05B6F07D2C3B7E5E00536D4F /* TodoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoFormViewController.swift; path = CleverOwl/ViewController/TodoFormViewController.swift; sourceTree = SOURCE_ROOT; };
+		05B6F07F2C3B832000536D4F /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		05B6F0812C3B92D000536D4F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		05B6F0832C3B962300536D4F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05B6F0362C3B636500536D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F04C2C3B636700536D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F0562C3B636700536D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05B6F0302C3B636500536D4F = {
+			isa = PBXGroup;
+			children = (
+				05B6F03B2C3B636500536D4F /* CleverOwl */,
+				05B6F0522C3B636700536D4F /* CleverOwlTests */,
+				05B6F05C2C3B636700536D4F /* CleverOwlUITests */,
+				05B6F03A2C3B636500536D4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05B6F03A2C3B636500536D4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0392C3B636500536D4F /* CleverOwl.app */,
+				05B6F04F2C3B636700536D4F /* CleverOwlTests.xctest */,
+				05B6F0592C3B636700536D4F /* CleverOwlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05B6F03B2C3B636500536D4F /* CleverOwl */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0752C3B6B5300536D4F /* Bruner */,
+				05B6F06E2C3B63B100536D4F /* TableViewCell */,
+				05B6F06D2C3B63A000536D4F /* ViewController */,
+				05B6F06C2C3B639600536D4F /* Model */,
+				05B6F03C2C3B636500536D4F /* AppDelegate.swift */,
+				05B6F03E2C3B636500536D4F /* SceneDelegate.swift */,
+				05B6F0402C3B636500536D4F /* ViewController.swift */,
+				05B6F0422C3B636500536D4F /* Main.storyboard */,
+				05B6F0452C3B636700536D4F /* Assets.xcassets */,
+				05B6F0472C3B636700536D4F /* LaunchScreen.storyboard */,
+				05B6F04A2C3B636700536D4F /* Info.plist */,
+			);
+			path = CleverOwl;
+			sourceTree = "<group>";
+		};
+		05B6F0522C3B636700536D4F /* CleverOwlTests */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0532C3B636700536D4F /* CleverOwlTests.swift */,
+			);
+			path = CleverOwlTests;
+			sourceTree = "<group>";
+		};
+		05B6F05C2C3B636700536D4F /* CleverOwlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F05D2C3B636700536D4F /* CleverOwlUITests.swift */,
+				05B6F05F2C3B636700536D4F /* CleverOwlUITestsLaunchTests.swift */,
+			);
+			path = CleverOwlUITests;
+			sourceTree = "<group>";
+		};
+		05B6F06C2C3B639600536D4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F06F2C3B642600536D4F /* AppSettings.swift */,
+				05B6F0712C3B6AB200536D4F /* Todo.swift */,
+				05B6F0732C3B6ADF00536D4F /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05B6F06D2C3B63A000536D4F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F07D2C3B7E5E00536D4F /* TodoFormViewController.swift */,
+				05B6F07B2C3B741A00536D4F /* TodoListTableViewController.swift */,
+				05B6F0812C3B92D000536D4F /* SettingsTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		05B6F06E2C3B63B100536D4F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F07F2C3B832000536D4F /* CategoryTableViewCell.swift */,
+				05B6F0832C3B962300536D4F /* SettingsTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		05B6F0752C3B6B5300536D4F /* Bruner */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0762C3B6B6200536D4F /* Helpers */,
+			);
+			path = Bruner;
+			sourceTree = "<group>";
+		};
+		05B6F0762C3B6B6200536D4F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0772C3B6B7000536D4F /* UI */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		05B6F0772C3B6B7000536D4F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0782C3B6B8800536D4F /* Color */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		05B6F0782C3B6B8800536D4F /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				05B6F0792C3B6BA300536D4F /* Color.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05B6F0382C3B636500536D4F /* CleverOwl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B6F0632C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwl" */;
+			buildPhases = (
+				05B6F0352C3B636500536D4F /* Sources */,
+				05B6F0362C3B636500536D4F /* Frameworks */,
+				05B6F0372C3B636500536D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CleverOwl;
+			productName = CleverOwl;
+			productReference = 05B6F0392C3B636500536D4F /* CleverOwl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05B6F04E2C3B636700536D4F /* CleverOwlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B6F0662C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwlTests" */;
+			buildPhases = (
+				05B6F04B2C3B636700536D4F /* Sources */,
+				05B6F04C2C3B636700536D4F /* Frameworks */,
+				05B6F04D2C3B636700536D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B6F0512C3B636700536D4F /* PBXTargetDependency */,
+			);
+			name = CleverOwlTests;
+			productName = CleverOwlTests;
+			productReference = 05B6F04F2C3B636700536D4F /* CleverOwlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05B6F0582C3B636700536D4F /* CleverOwlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B6F0692C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwlUITests" */;
+			buildPhases = (
+				05B6F0552C3B636700536D4F /* Sources */,
+				05B6F0562C3B636700536D4F /* Frameworks */,
+				05B6F0572C3B636700536D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B6F05B2C3B636700536D4F /* PBXTargetDependency */,
+			);
+			name = CleverOwlUITests;
+			productName = CleverOwlUITests;
+			productReference = 05B6F0592C3B636700536D4F /* CleverOwlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05B6F0312C3B636500536D4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					05B6F0382C3B636500536D4F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					05B6F04E2C3B636700536D4F = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 05B6F0382C3B636500536D4F;
+					};
+					05B6F0582C3B636700536D4F = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 05B6F0382C3B636500536D4F;
+					};
+				};
+			};
+			buildConfigurationList = 05B6F0342C3B636500536D4F /* Build configuration list for PBXProject "CleverOwl" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05B6F0302C3B636500536D4F;
+			productRefGroup = 05B6F03A2C3B636500536D4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05B6F0382C3B636500536D4F /* CleverOwl */,
+				05B6F04E2C3B636700536D4F /* CleverOwlTests */,
+				05B6F0582C3B636700536D4F /* CleverOwlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05B6F0372C3B636500536D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B6F0492C3B636700536D4F /* LaunchScreen.storyboard in Resources */,
+				05B6F0462C3B636700536D4F /* Assets.xcassets in Resources */,
+				05B6F0442C3B636500536D4F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F04D2C3B636700536D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F0572C3B636700536D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05B6F0352C3B636500536D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B6F07E2C3B7E5E00536D4F /* TodoFormViewController.swift in Sources */,
+				05B6F0412C3B636500536D4F /* ViewController.swift in Sources */,
+				05B6F0842C3B962300536D4F /* SettingsTableViewCell.swift in Sources */,
+				05B6F03D2C3B636500536D4F /* AppDelegate.swift in Sources */,
+				05B6F0822C3B92D000536D4F /* SettingsTableViewController.swift in Sources */,
+				05B6F07A2C3B6BA300536D4F /* Color.swift in Sources */,
+				05B6F0702C3B642600536D4F /* AppSettings.swift in Sources */,
+				05B6F0802C3B832000536D4F /* CategoryTableViewCell.swift in Sources */,
+				05B6F03F2C3B636500536D4F /* SceneDelegate.swift in Sources */,
+				05B6F0722C3B6AB200536D4F /* Todo.swift in Sources */,
+				05B6F0742C3B6ADF00536D4F /* Category.swift in Sources */,
+				05B6F07C2C3B741A00536D4F /* TodoListTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F04B2C3B636700536D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B6F0542C3B636700536D4F /* CleverOwlTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B6F0552C3B636700536D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B6F0602C3B636700536D4F /* CleverOwlUITestsLaunchTests.swift in Sources */,
+				05B6F05E2C3B636700536D4F /* CleverOwlUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05B6F0512C3B636700536D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B6F0382C3B636500536D4F /* CleverOwl */;
+			targetProxy = 05B6F0502C3B636700536D4F /* PBXContainerItemProxy */;
+		};
+		05B6F05B2C3B636700536D4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B6F0382C3B636500536D4F /* CleverOwl */;
+			targetProxy = 05B6F05A2C3B636700536D4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05B6F0422C3B636500536D4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B6F0432C3B636500536D4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		05B6F0472C3B636700536D4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B6F0482C3B636700536D4F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05B6F0612C3B636700536D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		05B6F0622C3B636700536D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05B6F0642C3B636700536D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CleverOwl/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05B6F0652C3B636700536D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CleverOwl/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		05B6F0672C3B636700536D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleverOwl.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CleverOwl";
+			};
+			name = Debug;
+		};
+		05B6F0682C3B636700536D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleverOwl.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CleverOwl";
+			};
+			name = Release;
+		};
+		05B6F06A2C3B636700536D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CleverOwl;
+			};
+			name = Debug;
+		};
+		05B6F06B2C3B636700536D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.conestogac.CleverOwlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CleverOwl;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05B6F0342C3B636500536D4F /* Build configuration list for PBXProject "CleverOwl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B6F0612C3B636700536D4F /* Debug */,
+				05B6F0622C3B636700536D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B6F0632C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B6F0642C3B636700536D4F /* Debug */,
+				05B6F0652C3B636700536D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B6F0662C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B6F0672C3B636700536D4F /* Debug */,
+				05B6F0682C3B636700536D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B6F0692C3B636700536D4F /* Build configuration list for PBXNativeTarget "CleverOwlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B6F06A2C3B636700536D4F /* Debug */,
+				05B6F06B2C3B636700536D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05B6F0312C3B636500536D4F /* Project object */;
+}
