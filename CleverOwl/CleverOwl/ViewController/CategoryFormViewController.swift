@@ -28,30 +28,35 @@ class CategoryFormViewController: UIViewController, UIColorPickerViewControllerD
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func saveCategory(_ sender: Any) {
-        
-        let name = textName.text
-        if name!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            let alert = UIAlertController(title: "Name field required", message: "Please enter a name.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        let color = Color(buttonColor.backgroundColor!)
-        let icon = categoryDefaultIcon
-        let category = Category(name: name!, color: color, icon: icon)
-        categoryList.append(category)
-        saveCategory(categoryList)
-        NotificationCenter.default.post(name: NSNotification.Name("DidUpdateCategoryData"), object: nil)
-        self.navigationController?.popViewController(animated: true)
-        
-    }
+
+    
     //Remove observer
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
+    @IBAction func save(_ sender: Any) {
+        guard let name = textName.text?.trimmingCharacters(in: .whitespacesAndNewlines), !name.isEmpty else {
+             let alert = UIAlertController(title: "Name field required", message: "Please enter a name.", preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+             self.present(alert, animated: true, completion: nil)
+             return
+         }
+        
+        let colorFront = buttonColor.backgroundColor ?? categoryDefaultColor
+        let color = Color(colorFront)
+        let icon = categoryDefaultIcon
+        let category = Category(name: name, color: color, icon: icon)
+        
+        categoryList.append(category)
+//        print(categoryList)
+//        print("--------------------------------")
+        saveCategory(categoryList)
+            
+        NotificationCenter.default.post(name: NSNotification.Name("DidUpdateCategoryData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func selectColor(_ sender: Any) {
         let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self

@@ -263,7 +263,7 @@ class TodoListTableViewController: UITableViewController {
                         todo = filteredTodos[indexPath.row]
                     }
                 }
-                print(todo)
+//                print(todo)
                 
                 vc.showTitle = todo.title
                 vc.showDescription = todo.description

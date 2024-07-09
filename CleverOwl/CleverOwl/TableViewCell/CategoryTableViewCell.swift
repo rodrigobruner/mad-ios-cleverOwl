@@ -28,7 +28,10 @@ class CategoryTableViewCell: UITableViewCell {
     
     func set(category:Category){
         if category != nil {
-            iconCategory.image = UIImage(systemName: category.icon)
+            
+            let categoryIcon: String = category.icon ?? categoryDefaultIcon
+            iconCategory.image = UIImage(systemName: categoryIcon)
+
             iconCategory.tintColor = .white
             
             labelCategory.text = category.name

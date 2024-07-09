@@ -42,12 +42,12 @@ class TodoTableViewCell: UITableViewCell {
         
         func formatCard(todo:Todo) {
             
-            print(todo)
+//            print(todo)
             
             //Category formatting
             if todo.category.name != categoryDefaultName {
                 labelCategory?.backgroundColor = todo.category.color.uiColor()
-                iconCategory.image = UIImage(systemName: todo.category.icon)
+                iconCategory.image = UIImage(systemName: todo.category.icon ?? categoryDefaultIcon)
                 iconCategory.tintColor = todo.category.color.uiColor()
             } else {
                 labelCategory?.removeFromSuperview()

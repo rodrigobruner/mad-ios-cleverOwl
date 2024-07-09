@@ -17,7 +17,7 @@ let categoryDefaultIcon = "questionmark.square"
 struct Category: Codable{
     var name:String
     var color:Color
-    var icon:String
+    var icon:String?
     
     static func getSample() -> [Category]{
         return [
@@ -34,20 +34,29 @@ struct Category: Codable{
 
 let keyForCategory = "Category.CleverOwl"
 
-func saveCategory(_ category:[Category]){
+func saveCategory(_ categories:[Category]){
 //    print("DEBUG: Category - Save")
-    let data = try? JSONEncoder().encode(category)
-    UserDefaults.standard.array(forKey: keyForCategory)
+//    print(category)
+    do {
+        let data = try JSONEncoder().encode(categories)
+        UserDefaults.standard.set(data, forKey: keyForCategory)
+    } catch {
+        print("Erro ao codificar categorias: \(error)")
+    }
 }
 
 func loadCategory() -> [Category] {
 //    print("DEBUG: Category - load")
+    
     guard let data = UserDefaults.standard.data(forKey: keyForCategory) else {
+        print("Load categorias - Default 1")
         return Category.getSample()
     }
     do {
+        print("Load categorias")
         return try JSONDecoder().decode([Category].self, from: data)
     } catch {
+        print("Load categorias - Default 2")
         return Category.getSample()
     }
 }

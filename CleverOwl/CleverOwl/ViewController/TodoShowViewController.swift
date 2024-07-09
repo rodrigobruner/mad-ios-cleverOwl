@@ -80,7 +80,7 @@ class TodoShowViewController: UIViewController {
             labelCategory.numberOfLines = 1
             labelCategory.layer.masksToBounds = true
             labelCategory.layer.cornerRadius = 5
-            iconCategory.image = UIImage(systemName: category.icon)
+            iconCategory.image = UIImage(systemName: category.icon ?? categoryDefaultIcon)
             iconCategory.tintColor = category.color.uiColor()
             labelTitle.textColor = category.color.uiColor()
         } else {

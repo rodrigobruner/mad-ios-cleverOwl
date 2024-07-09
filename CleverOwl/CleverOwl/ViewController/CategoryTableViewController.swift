@@ -16,10 +16,8 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
-        categoryList = loadCategory()
-        todoList = loadTodoList()
-//
-//        print(categoryList)
+            
+        reload()
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(formAddCategory))
         self.navigationItem.rightBarButtonItem = addButton
@@ -27,13 +25,29 @@ class CategoryTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleAddCategory), name: NSNotification.Name("DidUpdateCategoryData"), object: nil)
     }
     
+    func reload(){
+        categoryList = loadCategory()
+        todoList = loadTodoList()
+    }
+    
     @objc func handleAddCategory() {
-        let row = (self.categoryList.count-1)
-        print("Update Category \(row)")
-        tableView.beginUpdates()
-        let newIndexPath = IndexPath(row: row, section: 0)
-        self.tableView.insertRows(at: [newIndexPath], with: .fade)
-        tableView.endUpdates()
+        
+        reload()
+        print("======================================")
+        print(categoryList)
+        print("======================================")
+        
+        
+        // Certifique-se de que a operação de inserção na tableView seja feita após a atualização da fonte de dados
+        if let newRow = categoryList.indices.last {
+            tableView.beginUpdates()
+            let newIndexPath = IndexPath(row: newRow, section: 0)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.endUpdates()
+        } else {
+            // Se não houver itens, recarregue a tableView para refletir o estado atual da fonte de dados
+            tableView.reloadData()
+        }
     }
     
     @objc func formAddCategory() {
@@ -43,6 +57,9 @@ class CategoryTableViewController: UITableViewController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
 
     // MARK: - Table view data source
@@ -52,7 +69,7 @@ class CategoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(categoryList.count)
+//        print(categoryList.count)
         return categoryList.count
     }
 

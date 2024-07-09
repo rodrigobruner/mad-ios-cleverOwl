@@ -43,7 +43,6 @@ class TodoFormViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: "categoryCell")
-        
         createDatepicker()
         
         reload()
@@ -216,7 +215,9 @@ extension TodoFormViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryTableViewCell else {
+            fatalError("Não foi possível instanciar a célula como CategoryTableViewCell")
+        }
         
         let category = categories[indexPath.row]
 

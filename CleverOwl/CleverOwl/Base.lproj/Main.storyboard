@@ -585,7 +585,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save category"/>
                                 <connections>
-                                    <action selector="saveCategory:" destination="cPF-yn-4dR" eventType="touchUpInside" id="QY8-2d-AGC"/>
+                                    <action selector="save:" destination="cPF-yn-4dR" eventType="touchUpInside" id="2ET-Vh-nta"/>
                                 </connections>
                             </button>
                         </subviews>
