@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0523FE8E2C3CD04B0064B322 /* IconsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */; };
+		052F33F72C3CD37D005407B5 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F33F62C3CD37D005407B5 /* TodoTableViewCell.swift */; };
+		052F33FB2C3CD994005407B5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F33FA2C3CD994005407B5 /* Date.swift */; };
 		0542BFA52C3C6A9B0089DC5F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */; };
 		0542BFA72C3C71C40089DC5F /* CategoryFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */; };
 		05B6F03D2C3B636500536D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F03C2C3B636500536D4F /* AppDelegate.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCollectionViewController.swift; sourceTree = "<group>"; };
+		052F33F62C3CD37D005407B5 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		052F33FA2C3CD994005407B5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormViewController.swift; sourceTree = "<group>"; };
 		05B6F0392C3B636500536D4F /* CleverOwl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverOwl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052F33F92C3CD984005407B5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				052F33FA2C3CD994005407B5 /* Date.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		05B6F0302C3B636500536D4F = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +185,7 @@
 				05B6F0812C3B92D000536D4F /* SettingsTableViewController.swift */,
 				0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */,
 				0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */,
+				0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -180,6 +195,7 @@
 			children = (
 				05B6F07F2C3B832000536D4F /* CategoryTableViewCell.swift */,
 				05B6F0832C3B962300536D4F /* SettingsTableViewCell.swift */,
+				052F33F62C3CD37D005407B5 /* TodoTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -195,6 +211,7 @@
 		05B6F0762C3B6B6200536D4F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				052F33F92C3CD984005407B5 /* Util */,
 				05B6F0772C3B6B7000536D4F /* UI */,
 			);
 			path = Helpers;
@@ -232,6 +249,8 @@
 			dependencies = (
 			);
 			name = CleverOwl;
+			packageProductDependencies = (
+			);
 			productName = CleverOwl;
 			productReference = 05B6F0392C3B636500536D4F /* CleverOwl.app */;
 			productType = "com.apple.product-type.application";
@@ -304,6 +323,9 @@
 				Base,
 			);
 			mainGroup = 05B6F0302C3B636500536D4F;
+			packageReferences = (
+				0523FE882C3CCA070064B322 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
+			);
 			productRefGroup = 05B6F03A2C3B636500536D4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,13 +375,16 @@
 				05B6F03D2C3B636500536D4F /* AppDelegate.swift in Sources */,
 				05B6F0822C3B92D000536D4F /* SettingsTableViewController.swift in Sources */,
 				05B6F07A2C3B6BA300536D4F /* Color.swift in Sources */,
+				052F33FB2C3CD994005407B5 /* Date.swift in Sources */,
 				05B6F0702C3B642600536D4F /* AppSettings.swift in Sources */,
 				05B6F0802C3B832000536D4F /* CategoryTableViewCell.swift in Sources */,
 				05B6F03F2C3B636500536D4F /* SceneDelegate.swift in Sources */,
 				05B6F0722C3B6AB200536D4F /* Todo.swift in Sources */,
 				0542BFA72C3C71C40089DC5F /* CategoryFormViewController.swift in Sources */,
+				052F33F72C3CD37D005407B5 /* TodoTableViewCell.swift in Sources */,
 				05B6F0742C3B6ADF00536D4F /* Category.swift in Sources */,
 				05B6F07C2C3B741A00536D4F /* TodoListTableViewController.swift in Sources */,
+				0523FE8E2C3CD04B0064B322 /* IconsCollectionViewController.swift in Sources */,
 				0542BFA52C3C6A9B0089DC5F /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +721,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0523FE882C3CCA070064B322 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 05B6F0312C3B636500536D4F /* Project object */;
 }

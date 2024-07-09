@@ -11,20 +11,22 @@ import SwiftUI
 
 let categoryDefaultName = "Select a category"
 let categoryDefaultValeu = "Uncategorized"
-let categoryDefaultColor = UIColor.white
+let categoryDefaultColor = UIColor.gray
+let categoryDefaultIcon = "questionmark.square"
 
 struct Category: Codable{
     var name:String
     var color:Color
+    var icon:String
     
     static func getSample() -> [Category]{
         return [
-            Category(name: categoryDefaultName, color: Color(categoryDefaultColor)),
-            Category(name: "Work", color: .blue),
-            Category(name: "Personal", color: .purple),
-            Category(name: "Health", color: .red),
-            Category(name: "Travel", color: .blue),
-            Category(name: "Education", color: .purple),
+            Category(name: categoryDefaultName, color: Color(categoryDefaultColor), icon:"questionmark.square"),
+            Category(name: "Work", color: .blue, icon:"case"),
+            Category(name: "Personal", color: .green, icon:"person"),
+            Category(name: "Health", color: .red, icon:"cross.case"),
+            Category(name: "Travel", color: .orange,icon:"airplane"),
+            Category(name: "Education", color: .purple, icon:"book"),
         ]
     }
 }

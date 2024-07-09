@@ -150,7 +150,9 @@ class TodoFormViewController: UIViewController {
         let description = textDescription.text ?? ""
         
         let category = Category(name: (buttonSelectCategory.titleLabel?.text ?? categoryDefaultName) ,
-                                color: Color(buttonSelectCategory.backgroundColor ?? categoryDefaultColor))
+                                color: Color(buttonSelectCategory.backgroundColor ?? categoryDefaultColor),
+                                icon: categoryDefaultIcon
+        )
         
         let dueDateText = textDueDate.text ?? ""
         

@@ -12,6 +12,8 @@ class TodoListTableViewController: UITableViewController {
     
     var todoList:[Todo] = []
     
+    var categoryList: [Category] = []
+    
     var organizedTodoList:[Todo] = []
     
     var groupedTodos: [String: [Todo]] = [:]
@@ -138,9 +140,18 @@ class TodoListTableViewController: UITableViewController {
         return todoList.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoTableViewCell
         
         var todo:Todo
     
@@ -151,7 +162,7 @@ class TodoListTableViewController: UITableViewController {
             todo = todoList[indexPath.row]
         }
         
-        cell.textLabel?.text = todo.title
+        cell.set(todo: todo)
         return cell
     }
     
