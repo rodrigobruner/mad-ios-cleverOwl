@@ -27,12 +27,14 @@ struct SettingsSection{
 struct AppSettings: Codable{
     var grupedByCategory:Bool
     var showCompletedTasks:Bool
+    var sortByDueDate:Bool
     var importantFirst:Bool
     var defaultDateFormat:String
     
     static func defaultSettings() -> AppSettings {
         return AppSettings(grupedByCategory: true,
                            showCompletedTasks: false,
+                           sortByDueDate: true,
                            importantFirst: true,
                            defaultDateFormat: "E, d MMM yyyy HH:mm")
     }
@@ -42,13 +44,13 @@ struct AppSettings: Codable{
 let keyForAppSetings = "AppSettings.CleverOwl"
 
 func saveAppSettings(_ appSettings:AppSettings){
-    print("DEBUG: AppSettings - Save")
+//    print("DEBUG: AppSettings - Save")
     let data = try? JSONEncoder().encode(appSettings)
     UserDefaults.standard.set(data, forKey: keyForAppSetings)
 }
 
 func loadAppSettings() -> AppSettings {
-    print("DEBUG: AppSettings - Load")
+//    print("DEBUG: AppSettings - Load")
     guard let data = UserDefaults.standard.data(forKey: keyForAppSetings) else {
         return AppSettings.defaultSettings()
     }
@@ -60,6 +62,6 @@ func loadAppSettings() -> AppSettings {
 }
 
 func deleteSettings(){
-    print("DEBUG: AppSettings - Delete")
+//    print("DEBUG: AppSettings - Delete")
     UserDefaults.standard.removeObject(forKey: keyForAppSetings)
 }

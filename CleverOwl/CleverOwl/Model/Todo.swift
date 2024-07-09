@@ -145,7 +145,7 @@ struct Todo:Codable{
 let keyForTodoList = "Todo.CleverOwl"
 
 func saveTodoList(_ todoLists: [Todo]) {
-    print("DEBUG: Todo - Save")
+//    print("DEBUG: Todo - Save")
     do {
         let data = try JSONEncoder().encode(todoLists)
         UserDefaults.standard.set(data, forKey: keyForTodoList)
@@ -155,7 +155,7 @@ func saveTodoList(_ todoLists: [Todo]) {
 }
 
 func loadTodoList() -> [Todo] {
-    print("DEBUG: Todo - load")
+//    print("DEBUG: Todo - load")
     guard let data = UserDefaults.standard.data(forKey: keyForTodoList) else {
         return Todo.getSample()
     }
@@ -166,6 +166,6 @@ func loadTodoList() -> [Todo] {
     }
 }
 func deleteTodoList(){
-    print("DEBUG: Todo - Delete")
+//    print("DEBUG: Todo - Delete")
     UserDefaults.standard.removeObject(forKey: keyForTodoList)
 }

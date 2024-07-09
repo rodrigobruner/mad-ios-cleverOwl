@@ -10,6 +10,7 @@
 		0523FE8E2C3CD04B0064B322 /* IconsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */; };
 		052F33F72C3CD37D005407B5 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F33F62C3CD37D005407B5 /* TodoTableViewCell.swift */; };
 		052F33FB2C3CD994005407B5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F33FA2C3CD994005407B5 /* Date.swift */; };
+		052F33FD2C3D1C0E005407B5 /* TodoShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F33FC2C3D1C0E005407B5 /* TodoShowViewController.swift */; };
 		0542BFA52C3C6A9B0089DC5F /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */; };
 		0542BFA72C3C71C40089DC5F /* CategoryFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */; };
 		05B6F03D2C3B636500536D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6F03C2C3B636500536D4F /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCollectionViewController.swift; sourceTree = "<group>"; };
 		052F33F62C3CD37D005407B5 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		052F33FA2C3CD994005407B5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		052F33FC2C3D1C0E005407B5 /* TodoShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoShowViewController.swift; sourceTree = "<group>"; };
 		0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormViewController.swift; sourceTree = "<group>"; };
 		05B6F0392C3B636500536D4F /* CleverOwl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverOwl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 				0542BFA42C3C6A9B0089DC5F /* CategoryTableViewController.swift */,
 				0542BFA62C3C71C40089DC5F /* CategoryFormViewController.swift */,
 				0523FE8D2C3CD04B0064B322 /* IconsCollectionViewController.swift */,
+				052F33FC2C3D1C0E005407B5 /* TodoShowViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				05B6F0802C3B832000536D4F /* CategoryTableViewCell.swift in Sources */,
 				05B6F03F2C3B636500536D4F /* SceneDelegate.swift in Sources */,
 				05B6F0722C3B6AB200536D4F /* Todo.swift in Sources */,
+				052F33FD2C3D1C0E005407B5 /* TodoShowViewController.swift in Sources */,
 				0542BFA72C3C71C40089DC5F /* CategoryFormViewController.swift in Sources */,
 				052F33F72C3CD37D005407B5 /* TodoTableViewCell.swift in Sources */,
 				05B6F0742C3B6ADF00536D4F /* Category.swift in Sources */,

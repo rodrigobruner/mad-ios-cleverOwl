@@ -42,37 +42,33 @@ class TodoTableViewCell: UITableViewCell {
         
         func formatCard(todo:Todo) {
             
+            print(todo)
+            
             //Category formatting
             if todo.category.name != categoryDefaultName {
                 labelCategory?.backgroundColor = todo.category.color.uiColor()
+                iconCategory.image = UIImage(systemName: todo.category.icon)
+                iconCategory.tintColor = todo.category.color.uiColor()
             } else {
                 labelCategory?.removeFromSuperview()
             }
-            iconCategory.image = UIImage(systemName: todo.category.icon)
-            iconCategory.tintColor = todo.category.color.uiColor()
+            
             
 //            print(" DUE date \(todo.dueDate)")
             //Date formatting
             if todo.dueDate != nil {
-                if todo.dueDate != todo.createAt, let days = daysUntilDate(todo.dueDate!) {
-                    if days == 1 {
-                        iconClock?.tintColor = .red
-                        labelDueDate?.tintColor = .red
-                    }
-                } else {
-                    labelDueDate?.removeFromSuperview()
-                    iconClock?.removeFromSuperview()
+                if let days = daysUntilDate(todo.dueDate!), days == 1 {
+                    iconClock?.tintColor = .red
+                    labelDueDate?.tintColor = .red
                 }
-            } else {
-//                print("DueDate=Nil")
+            }else {
                 labelDueDate?.removeFromSuperview()
                 iconClock?.removeFromSuperview()
             }
 
             
             //Icon formatting
-            if todo.isImportant {
-                //Icon status
+            if todo.isImportant == true{
                 iconStatus?.image = UIImage(systemName: "exclamationmark.circle.fill")
                 iconStatus?.tintColor = .red
                 self.layer.borderColor = UIColor(named: "Secondary")?.cgColor
@@ -89,7 +85,9 @@ class TodoTableViewCell: UITableViewCell {
                     attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length)
                     )
             
-                
+                iconCategory.tintColor = .gray
+                labelCategory?.backgroundColor = .gray
+
                 
                 labelTitle.attributedText = attributeString
                 

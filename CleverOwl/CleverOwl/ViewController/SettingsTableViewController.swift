@@ -32,6 +32,7 @@ class SettingsTableViewController: UITableViewController {
                 handler: {
                     self.appSettings.grupedByCategory = !self.appSettings.grupedByCategory
                     saveAppSettings(self.appSettings)
+                    NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
                     self.restartApp()
                 }),
             SettingsOption(
@@ -43,6 +44,34 @@ class SettingsTableViewController: UITableViewController {
                 handler: {
                     self.appSettings.showCompletedTasks = !self.appSettings.showCompletedTasks
                     saveAppSettings(self.appSettings)
+                    NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
+                    self.restartApp()
+                })
+        ]))
+        
+        settingsSections.append(SettingsSection(title: "Sort by", options: [
+            SettingsOption(
+                title: "Due date",
+                icon: UIImage(systemName: "calendar.badge.clock"),
+                iconBackgroundColor: UIColor.systemGreen,
+                isASwitch:true,
+                isOn:self.appSettings.sortByDueDate,
+                handler: {
+                    self.appSettings.sortByDueDate = !self.appSettings.sortByDueDate
+                    saveAppSettings(self.appSettings)
+                    NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
+                    self.restartApp()
+                }),
+            SettingsOption(
+                title: "Important first",
+                icon: UIImage(systemName: "text.line.first.and.arrowtriangle.forward"),
+                iconBackgroundColor: UIColor.systemGreen,
+                isASwitch:true,
+                isOn:self.appSettings.importantFirst,
+                handler: {
+                    self.appSettings.importantFirst = !self.appSettings.importantFirst
+                    saveAppSettings(self.appSettings)
+                    NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
                     self.restartApp()
                 })
         ]))
