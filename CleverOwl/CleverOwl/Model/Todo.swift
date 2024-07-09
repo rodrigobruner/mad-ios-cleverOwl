@@ -30,7 +30,7 @@ struct Todo:Codable{
         return [
             Todo(
                 uid: UUID().uuidString,
-                title: "Implement Authentication in iOS App",
+                title: "Implement Authentication in iOS App! [next week]",
                 description: "Use OAuth2 for secure authentication.",
                 category: Category(name: "iOS", color: .orange, icon: "iphone"),
                 createAt: today,
@@ -41,7 +41,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Optimize Website for SEO",
+                title: "Optimize Website for SEO [next month]",
                 description: "Improve meta tags and content for better search engine ranking.",
                 category: Category(name: "Web", color: .blue, icon: "desktopcomputer"),
                 createAt: today,
@@ -52,7 +52,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Conduct Usability Testing",
+                title: "Conduct Usability Testing [today]",
                 description: "Test the system with real users to gather feedback.",
                 category: Category(name: "System Analysis", color: .red, icon: "doc.text"),
                 createAt: today,
@@ -63,7 +63,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Create Icons for Mobile App",
+                title: "Create Icons for Mobile App! [next week]",
                 description: "Design custom icons for the app's navigation menu.",
                 category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
                 createAt: today,
@@ -74,7 +74,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Develop REST API for iOS App",
+                title: "Develop REST API for iOS App! [next week]",
                 description: "Create a RESTful API to connect the iOS app with the backend.",
                 category: Category(name: "iOS", color: .orange, icon: "iphone"),
                 createAt: today,
@@ -85,7 +85,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Refactor Web App Backend",
+                title: "Refactor Web App Backend [next month]",
                 description: "Improve code quality and performance of the web app's backend.",
                 category: Category(name: "Web", color: .blue, icon: "desktopcomputer"),
                 createAt: today,
@@ -96,7 +96,7 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Prepare System Analysis Presentation",
+                title: "Prepare System Analysis Presentation! [+1h]",
                 description: "Create slides to present the system analysis report findings.",
                 category: Category(name: "System Analysis", color: .red, icon: "doc.text"),
                 createAt: today,
@@ -107,14 +107,25 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Prototype New UI/UX Features",
+                title: "Prototype New UI/UX Features! [+1h]",
                 description: "Build prototypes for testing new user interface concepts.",
                 category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
                 createAt: today,
                 completedAt: nil,
-                dueDate: nextWeek,
+                dueDate: plusOneHour,
                 isComplete: false,
                 isImportant: true
+            ),
+            Todo(
+                uid: UUID().uuidString,
+                title: "Prototype New App [today]",
+                description: "Build prototypes for testing new user interface concepts.",
+                category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
+                createAt: today,
+                completedAt: nil,
+                dueDate: today,
+                isComplete: false,
+                isImportant: false
             )
         ]
     }
