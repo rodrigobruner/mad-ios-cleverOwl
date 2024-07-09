@@ -65,7 +65,10 @@ class CategoryFormViewController: UIViewController, UIColorPickerViewControllerD
     
     
     @IBAction func selectIcon(_ sender: Any) {
-
+        let alert = UIAlertController(title: "Not available in this version", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return
     }
     
 }

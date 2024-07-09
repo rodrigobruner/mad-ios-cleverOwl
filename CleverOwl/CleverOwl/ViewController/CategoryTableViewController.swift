@@ -73,25 +73,35 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
+        if categoryList[indexPath.row].name == categoryDefaultValeu {
+            let alert = UIAlertController(title: "This category cannot be removed.", message: "This category is used by the system to store uncategorized tasks.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
-        let countTasks = todoList.first(where: { $0.category.name == categoryList[indexPath.row].name})
-
-        if countTasks != nil {
+        let category = categoryList[indexPath.row]
+        var countTasks: Int = 0
+        if category != nil {
+            countTasks = todoList.filter { $0.category.name == category.name }.count
+        }
+        
+        if countTasks > 0 {
             let alert = UIAlertController(title: "There are tasks registered in this category.", message: "Remove all tasks from this category and then remove it.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
         
-        
-        if categoryList[indexPath.row].name == categoryDefaultName {
-            let alert = UIAlertController(title: "This category cannot be removed.", message: "This category is used by the system to store uncategorized tasks.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+
         
         categoryList.remove(at: indexPath.row)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+        
         saveCategory(categoryList)
+        
     }
 
 }

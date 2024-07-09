@@ -177,6 +177,9 @@
                                 <rect key="frame" x="40" y="630" width="313" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Edit"/>
+                                <connections>
+                                    <action selector="Edit:" destination="4Tc-a5-64B" eventType="touchUpInside" id="WyH-5a-jrZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytp-fa-s7V">
                                 <rect key="frame" x="225" y="719" width="144" height="16"/>

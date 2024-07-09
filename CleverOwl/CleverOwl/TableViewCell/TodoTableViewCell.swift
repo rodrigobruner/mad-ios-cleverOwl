@@ -74,7 +74,7 @@ class TodoTableViewCell: UITableViewCell {
                 self.layer.borderColor = UIColor(named: "Secondary")?.cgColor
             } else {
                 if (iconStatus != nil) {
-                    iconStatus.removeFromSuperview()
+                    iconStatus.tintColor = .white
                 }
             }
             

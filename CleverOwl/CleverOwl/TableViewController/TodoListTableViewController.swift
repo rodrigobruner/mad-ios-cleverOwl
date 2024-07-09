@@ -11,6 +11,7 @@ import SwiftUI
 class TodoListTableViewController: UITableViewController {
     
     var todoList:[Todo] = []
+    var filteredTodos: [Todo] = []
     
     var categoryList: [Category] = []
     
@@ -67,7 +68,9 @@ class TodoListTableViewController: UITableViewController {
     
     @objc func handleSettingsChange(){
         print("Change config")
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     //Remove observer
     deinit {
@@ -80,10 +83,33 @@ class TodoListTableViewController: UITableViewController {
         todoList = loadTodoList()
         appSettings = loadAppSettings()
         categoryList = loadCategory()
+        filteredTodos = todoList.filter { !$0.isComplete }
         
         if appSettings.grupedByCategory {
             groupedTodos = Dictionary(grouping: todoList, by: { $0.category.name })
             categoryKeys = groupedTodos.keys.sorted()
+            
+            for (category, todos) in groupedTodos {
+                groupedTodos[category] = todos.sorted { (todo1, todo2) in
+                    let dueDate1 = todo1.dueDate ?? Calendar.current.date(byAdding: .year, value: 1, to: todo1.createAt)!
+                    let dueDate2 = todo2.dueDate ?? Calendar.current.date(byAdding: .year, value: 1, to: todo2.createAt)!
+                    return dueDate1 < dueDate2
+                }
+            }
+
+            // 2. Se importantFirst está habilitado, ordenar por importância
+            if appSettings.importantFirst {
+                for (category, todos) in groupedTodos {
+                    groupedTodos[category] = todos.sorted(by: { $0.isImportant && !$1.isImportant })
+                }
+            }
+
+            // 3. Se showCompletedTasks está habilitado, mover tarefas concluídas para o final
+            if appSettings.showCompletedTasks {
+                for (category, todos) in groupedTodos {
+                    groupedTodos[category] = todos.sorted(by: { !$0.isComplete && $1.isComplete })
+                }
+            }
         } else {
             var cache: [Todo] = todoList
             
@@ -146,6 +172,10 @@ class TodoListTableViewController: UITableViewController {
             let category = self.categoryKeys[section]
             return self.groupedTodos[category]?.count ?? 0
         }
+        
+        if !appSettings.showCompletedTasks {
+            return filteredTodos.count
+        }
         return todoList.count
     }
     
@@ -195,7 +225,12 @@ class TodoListTableViewController: UITableViewController {
             let category = categoryKeys[indexPath.section]
             todo = groupedTodos[category]![indexPath.row]
         } else {
-            todo = todoList[indexPath.row]
+            if appSettings.showCompletedTasks {
+                todo = todoList[indexPath.row]
+            } else {
+                todo = filteredTodos[indexPath.row]
+            }
+            
         }
         
         cell.set(todo: todo)
@@ -283,6 +318,7 @@ class TodoListTableViewController: UITableViewController {
             tableView.endUpdates()
             completionHandler(true)
         }
+        NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
         action.backgroundColor = .systemGreen
         return UISwipeActionsConfiguration(actions: [action])
     }
