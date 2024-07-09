@@ -113,6 +113,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a title to your task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ri-D7-TiH">
                                 <rect key="frame" x="20" y="134" width="353" height="34"/>
+                                <color key="textColor" name="text"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -127,6 +128,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OZV-V9-GSR"/>
                                 </constraints>
+                                <color key="textColor" name="text"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -155,6 +157,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-MS-l1H">
                                 <rect key="frame" x="20" y="411" width="353" height="34"/>
+                                <color key="textColor" name="text"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -201,7 +204,7 @@
                             <constraint firstItem="r6q-tg-tTy" firstAttribute="trailing" secondItem="DWR-KO-5r1" secondAttribute="trailing" constant="20" id="yhK-kF-dgD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add new Task" id="IUU-Gs-s6o"/>
+                    <navigationItem key="navigationItem" title="Add new Task" largeTitleDisplayMode="always" id="IUU-Gs-s6o"/>
                     <connections>
                         <outlet property="buttonSelectCategory" destination="DWR-KO-5r1" id="M5g-yl-t3d"/>
                         <outlet property="switchImportant" destination="3Yq-HD-chT" id="bUq-5Y-aMK"/>
@@ -479,6 +482,9 @@
         </namedColor>
         <namedColor name="secondary">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

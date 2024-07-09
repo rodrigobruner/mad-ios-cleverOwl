@@ -24,6 +24,8 @@ class TodoListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
         reload()
         NotificationCenter.default.addObserver(self, selector: #selector(handleAddTask), name: NSNotification.Name("DidUpdateData"), object: nil)
     }

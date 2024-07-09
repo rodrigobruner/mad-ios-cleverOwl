@@ -19,7 +19,8 @@ class CategoryFormViewController: UIViewController, UIColorPickerViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
         // Do any additional setup after loading the view.
     }
 

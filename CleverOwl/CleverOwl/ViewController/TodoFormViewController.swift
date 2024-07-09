@@ -38,7 +38,8 @@ class TodoFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: "categoryCell")

@@ -51,7 +51,7 @@ class TodoTableViewCell: UITableViewCell {
             iconCategory.image = UIImage(systemName: todo.category.icon)
             iconCategory.tintColor = todo.category.color.uiColor()
             
-            print(" DUE date \(todo.dueDate)")
+//            print(" DUE date \(todo.dueDate)")
             //Date formatting
             if todo.dueDate != nil {
                 if todo.dueDate != todo.createAt, let days = daysUntilDate(todo.dueDate!) {
@@ -64,7 +64,7 @@ class TodoTableViewCell: UITableViewCell {
                     iconClock?.removeFromSuperview()
                 }
             } else {
-                print("DueDate=Nil")
+//                print("DueDate=Nil")
                 labelDueDate?.removeFromSuperview()
                 iconClock?.removeFromSuperview()
             }
