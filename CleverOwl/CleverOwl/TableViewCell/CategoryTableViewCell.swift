@@ -27,12 +27,15 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     func set(category:Category){
-        iconCategory.image = UIImage(systemName: category.icon)
-        iconCategory.tintColor = .white
-        
-        labelCategory.text = category.name
-        
-        self.backgroundColor = category.color.uiColor()
+        if category != nil {
+            iconCategory.image = UIImage(systemName: category.icon)
+            iconCategory.tintColor = .white
+            
+            labelCategory.text = category.name
+            labelCategory.textColor = .white
+            
+            self.backgroundColor = category.color.uiColor()
+        }
     }
 
 }

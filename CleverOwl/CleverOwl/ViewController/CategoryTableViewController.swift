@@ -28,12 +28,12 @@ class CategoryTableViewController: UITableViewController {
     }
     
     @objc func handleAddCategory() {
-        print("Update Category")
-//        categoryList = loadCategory()
-        let newIndexPath = IndexPath(row: self.categoryList.count-1, section: 0)
-        
-        //@Corrigir bug
-        //        self.tableView.insertRows(at: [newIndexPath], with: .fade)
+        let row = (self.categoryList.count-1)
+        print("Update Category \(row)")
+        tableView.beginUpdates()
+        let newIndexPath = IndexPath(row: row, section: 0)
+        self.tableView.insertRows(at: [newIndexPath], with: .fade)
+        tableView.endUpdates()
     }
     
     @objc func formAddCategory() {

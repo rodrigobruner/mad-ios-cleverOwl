@@ -216,12 +216,11 @@ extension TodoFormViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
         
-        var category = categories[indexPath.row]
-//        print(indexPath.row)
+        let category = categories[indexPath.row]
 
-        cell.textLabel?.text = category.name
+        cell.set(category: category)
         return cell
     }
     

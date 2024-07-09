@@ -42,9 +42,15 @@ class CategoryFormViewController: UIViewController, UIColorPickerViewControllerD
         let icon = categoryDefaultIcon
         let category = Category(name: name!, color: color, icon: icon)
         categoryList.append(category)
+        saveCategory(categoryList)
         NotificationCenter.default.post(name: NSNotification.Name("DidUpdateCategoryData"), object: nil)
-        self.navigationController?.popViewController(animated: true)    }
-    
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    //Remove observer
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     @IBAction func selectColor(_ sender: Any) {
         let colorPickerVC = UIColorPickerViewController()
