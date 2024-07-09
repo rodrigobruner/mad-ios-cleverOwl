@@ -74,6 +74,8 @@ class TodoListTableViewController: UITableViewController {
         appSettings = loadAppSettings()
         print(appSettings)
         
+        categoryList = loadCategory()
+        
         if appSettings.grupedByCategory {
             groupedTodos = Dictionary(grouping: loadTodoList(), by: { $0.category.name })
             categoryKeys = groupedTodos.keys.sorted()
@@ -145,7 +147,33 @@ class TodoListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
+        
+            let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
+        if appSettings.grupedByCategory {
+            header.backgroundColor = .white
+            
+            let categoryName = self.categoryKeys[section]
+            let category = categoryList.first(where: {$0.name == categoryName})
+            
+            var width = 0
+            
+            if category!.icon != "" {
+                width = 25
+                let imageView = UIImageView(image: UIImage(systemName: category!.icon))
+                imageView.tintColor = category!.color.uiColor()
+                imageView.contentMode = .scaleAspectFit
+                header.addSubview(imageView)
+                imageView.frame = CGRect(x: 20, y: -8, width: width, height: 25)
+            }
+            let label = UILabel(frame: CGRect(x: 50 , y: -20,
+                                              width: header.frame.size.width-30,
+                                              height: header.frame.size.height-10))
+            header.addSubview(label)
+            label.text = category?.name
+            label.font = .systemFont(ofSize: 22, weight: .bold)
+            label.textColor = category?.color.uiColor()
+        }
+            return header
         
     }
     

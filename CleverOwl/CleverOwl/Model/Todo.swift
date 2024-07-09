@@ -67,7 +67,7 @@ struct Todo:Codable{
                 category: Category(name: "Travel", color: .orange,icon:"airplane"),
                 createAt: today,
                 completedAt: nil,
-                dueDate: nextMonth,
+                dueDate: nil,
                 isComplete: false,
                 isImportant: true
             ),
@@ -78,7 +78,7 @@ struct Todo:Codable{
                 category: Category(name: "Education", color: .purple, icon:"book"),
                 createAt: today,
                 completedAt: nil,
-                dueDate: nextWeek,
+                dueDate: nil,
                 isComplete: false,
                 isImportant: false
             ),
