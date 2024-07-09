@@ -34,8 +34,8 @@ struct AppSettings: Codable{
     static func defaultSettings() -> AppSettings {
         return AppSettings(grupedByCategory: true,
                            showCompletedTasks: false,
-                           sortByDueDate: true,
-                           importantFirst: true,
+                           sortByDueDate: false,
+                           importantFirst: false,
                            defaultDateFormat: "E, d MMM yyyy HH:mm")
     }
 }

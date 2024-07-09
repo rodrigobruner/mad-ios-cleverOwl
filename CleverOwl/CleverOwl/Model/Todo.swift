@@ -26,12 +26,13 @@ struct Todo:Codable{
         let nextWeek = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: today)!
         let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: today)!
 
+        
         return [
             Todo(
                 uid: UUID().uuidString,
-                title: "Complete the project documentation",
-                description: "Ensure all modules are properly documented.",
-                category: Category(name: "Work", color: .blue, icon:"case"),
+                title: "Implement Authentication in iOS App",
+                description: "Use OAuth2 for secure authentication.",
+                category: Category(name: "iOS", color: .orange, icon: "iphone"),
                 createAt: today,
                 completedAt: nil,
                 dueDate: nextWeek,
@@ -40,53 +41,20 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Meeting",
-                description: "",
-                category: Category(name: "Work", color: .blue, icon:"case"),
-                createAt: today,
-                completedAt: nil,
-                dueDate: tomorrow,
-                isComplete: false,
-                isImportant: false
-            ),
-            Todo(
-                uid: UUID().uuidString,
-                title: "Schedule dentist appointment",
-                description: "Call Dr. Smith's office to schedule cleaning.",
-                category: Category(name: "Health", color: .red, icon:"cross.case"),
+                title: "Optimize Website for SEO",
+                description: "Improve meta tags and content for better search engine ranking.",
+                category: Category(name: "Web", color: .blue, icon: "desktopcomputer"),
                 createAt: today,
                 completedAt: nil,
                 dueDate: nextMonth,
                 isComplete: false,
-                isImportant: true
-            ),
-            Todo(
-                uid: UUID().uuidString,
-                title: "Book flight tickets",
-                description: "Look for the best deals to visit family.",
-                category: Category(name: "Travel", color: .orange,icon:"airplane"),
-                createAt: today,
-                completedAt: nil,
-                dueDate: nil,
-                isComplete: false,
-                isImportant: true
-            ),
-            Todo(
-                uid: UUID().uuidString,
-                title: "Learn SwiftUI",
-                description: "Complete the SwiftUI tutorial on Ray Wenderlich.",
-                category: Category(name: "Education", color: .purple, icon:"book"),
-                createAt: today,
-                completedAt: nil,
-                dueDate: nil,
-                isComplete: false,
                 isImportant: false
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Organize anotations",
-                description: "",
-                category: Category(name: "Education", color: .purple, icon:"book"),
+                title: "Conduct Usability Testing",
+                description: "Test the system with real users to gather feedback.",
+                category: Category(name: "System Analysis", color: .red, icon: "doc.text"),
                 createAt: today,
                 completedAt: nil,
                 dueDate: plusOneHour,
@@ -95,31 +63,9 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Prepare for the marathon",
-                description: "Increase weekly mileage and focus on nutrition.",
-                category: Category(name: "Health", color: .red, icon:"cross.case"),
-                createAt: today,
-                completedAt: nil,
-                dueDate: nextMonth,
-                isComplete: false,
-                isImportant: true
-            ),
-            Todo(
-                uid: UUID().uuidString,
-                title: "Plan weekend hike",
-                description: "Check weather and trail conditions.",
-                category: Category(name: "Health", color: .red, icon:"cross.case"),
-                createAt: today,
-                completedAt: nil,
-                dueDate: tomorrow,
-                isComplete: false,
-                isImportant: false
-            ),
-            Todo(
-                uid: UUID().uuidString,
-                title: "Update resume",
-                description: "Add recent projects and skills.",
-                category: Category(name: "Personal", color: .green, icon:"person"),
+                title: "Create Icons for Mobile App",
+                description: "Design custom icons for the app's navigation menu.",
+                category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
                 createAt: today,
                 completedAt: nil,
                 dueDate: nextWeek,
@@ -128,14 +74,47 @@ struct Todo:Codable{
             ),
             Todo(
                 uid: UUID().uuidString,
-                title: "Read 'Atomic Habits'",
-                description: "Finish reading and take notes.",
-                category: Category(name: "Education", color: .purple, icon:"book"),
+                title: "Develop REST API for iOS App",
+                description: "Create a RESTful API to connect the iOS app with the backend.",
+                category: Category(name: "iOS", color: .orange, icon: "iphone"),
+                createAt: today,
+                completedAt: nil,
+                dueDate: nextWeek,
+                isComplete: false,
+                isImportant: true
+            ),
+            Todo(
+                uid: UUID().uuidString,
+                title: "Refactor Web App Backend",
+                description: "Improve code quality and performance of the web app's backend.",
+                category: Category(name: "Web", color: .blue, icon: "desktopcomputer"),
                 createAt: today,
                 completedAt: nil,
                 dueDate: nextMonth,
                 isComplete: false,
                 isImportant: false
+            ),
+            Todo(
+                uid: UUID().uuidString,
+                title: "Prepare System Analysis Presentation",
+                description: "Create slides to present the system analysis report findings.",
+                category: Category(name: "System Analysis", color: .red, icon: "doc.text"),
+                createAt: today,
+                completedAt: nil,
+                dueDate: plusOneHour,
+                isComplete: false,
+                isImportant: true
+            ),
+            Todo(
+                uid: UUID().uuidString,
+                title: "Prototype New UI/UX Features",
+                description: "Build prototypes for testing new user interface concepts.",
+                category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
+                createAt: today,
+                completedAt: nil,
+                dueDate: nextWeek,
+                isComplete: false,
+                isImportant: true
             )
         ]
     }

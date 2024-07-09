@@ -22,11 +22,11 @@ struct Category: Codable{
     static func getSample() -> [Category]{
         return [
             Category(name: categoryDefaultValeu, color: Color(categoryDefaultColor), icon:"questionmark.square"),
-            Category(name: "Work", color: .blue, icon:"case"),
-            Category(name: "Personal", color: .green, icon:"person"),
-            Category(name: "Health", color: .red, icon:"cross.case"),
-            Category(name: "Travel", color: .orange,icon:"airplane"),
-            Category(name: "Education", color: .purple, icon:"book"),
+            Category(name: "iOS", color: .orange, icon: "iphone"),
+            Category(name: "Web", color: .blue, icon: "desktopcomputer"),
+            Category(name: "System Analysis", color: .red, icon: "doc.text"),
+            Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
+            Category(name: "Sample category", color: .green, icon: "trash"),
         ]
     }
 }
@@ -34,7 +34,7 @@ struct Category: Codable{
 
 let keyForCategory = "Category.CleverOwl"
 
-func saveCategory(_ category:Category){
+func saveCategory(_ category:[Category]){
 //    print("DEBUG: Category - Save")
     let data = try? JSONEncoder().encode(category)
     UserDefaults.standard.array(forKey: keyForCategory)
