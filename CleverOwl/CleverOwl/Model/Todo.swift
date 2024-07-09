@@ -90,7 +90,7 @@ struct Todo:Codable{
                 category: Category(name: "Web", color: .blue, icon: "desktopcomputer"),
                 createAt: today,
                 completedAt: nil,
-                dueDate: nextMonth,
+                dueDate: tomorrow,
                 isComplete: false,
                 isImportant: false
             ),
@@ -112,7 +112,7 @@ struct Todo:Codable{
                 category: Category(name: "UI/UX", color: .purple, icon: "pencil.and.outline"),
                 createAt: today,
                 completedAt: nil,
-                dueDate: plusOneHour,
+                dueDate: tomorrow,
                 isComplete: false,
                 isImportant: true
             ),

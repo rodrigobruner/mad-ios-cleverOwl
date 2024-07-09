@@ -60,8 +60,14 @@ class TodoListTableViewController: UITableViewController {
                 self.tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         } else {
+            
+
+            todoList = loadTodoList()
+            filteredTodos = todoList.filter { !$0.isComplete }
+            tableView.beginUpdates()
             let newIndexPath = IndexPath(row: self.todoList.count-1, section: 0)
-            self.tableView.reloadData()
+            self.tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.endUpdates()
         }
     }
     
@@ -97,14 +103,12 @@ class TodoListTableViewController: UITableViewController {
                 }
             }
 
-            // 2. Se importantFirst está habilitado, ordenar por importância
             if appSettings.importantFirst {
                 for (category, todos) in groupedTodos {
                     groupedTodos[category] = todos.sorted(by: { $0.isImportant && !$1.isImportant })
                 }
             }
 
-            // 3. Se showCompletedTasks está habilitado, mover tarefas concluídas para o final
             if appSettings.showCompletedTasks {
                 for (category, todos) in groupedTodos {
                     groupedTodos[category] = todos.sorted(by: { !$0.isComplete && $1.isComplete })
@@ -113,24 +117,24 @@ class TodoListTableViewController: UITableViewController {
         } else {
             var cache: [Todo] = todoList
             
-            // Sort by due date, placing items without a due date last
+            
             cache.sort { (todo1, todo2) in
                 let dueDate1 = todo1.dueDate ?? Calendar.current.date(byAdding: .year, value: 1, to: todo1.createAt)!
                 let dueDate2 = todo2.dueDate ?? Calendar.current.date(byAdding: .year, value: 1, to: todo2.createAt)!
                 return dueDate1 < dueDate2
             }
             
-            // If importantFirst is enabled, sort by importance
+            
             if appSettings.importantFirst {
                 cache = cache.sorted(by: { $0.isImportant && !$1.isImportant })
             }
             
-            // If showCompletedTasks is enabled, move completed tasks to the end
+            
             if appSettings.showCompletedTasks {
                 cache = cache.sorted(by: { !$0.isComplete && $1.isComplete })
             }
             
-            todoList = cache
+            filteredTodos = cache
         }
         
         DispatchQueue.main.async {
@@ -173,10 +177,11 @@ class TodoListTableViewController: UITableViewController {
             return self.groupedTodos[category]?.count ?? 0
         }
         
-        if !appSettings.showCompletedTasks {
-            return filteredTodos.count
+        if appSettings.showCompletedTasks {
+            return todoList.count
         }
-        return todoList.count
+        
+        return filteredTodos.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -252,7 +257,11 @@ class TodoListTableViewController: UITableViewController {
                     let category = categoryKeys[indexPath.section]
                     todo = groupedTodos[category]![indexPath.row]
                 } else {
-                    todo = todoList[indexPath.row]
+                    if appSettings.showCompletedTasks{
+                        todo = todoList[indexPath.row]
+                    } else {
+                        todo = filteredTodos[indexPath.row]
+                    }
                 }
                 print(todo)
                 
@@ -308,6 +317,7 @@ class TodoListTableViewController: UITableViewController {
             } else {
                 self.todoList[indexPath.row].isComplete = true
                 self.todoList[indexPath.row].completedAt = Date()
+                self.filteredTodos = self.todoList.filter { !$0.isComplete }
                 if !self.appSettings.showCompletedTasks {
                     self.todoList.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .fade)
@@ -362,7 +372,9 @@ class TodoListTableViewController: UITableViewController {
                 }
                 
             } else {
+
                 todoList.remove(at: indexPath.row)
+                filteredTodos = todoList.filter { !$0.isComplete }
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             saveTodoList(todoList)
