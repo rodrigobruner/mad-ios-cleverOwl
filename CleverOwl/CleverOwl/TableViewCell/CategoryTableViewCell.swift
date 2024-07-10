@@ -30,7 +30,12 @@ class CategoryTableViewCell: UITableViewCell {
         if category != nil {
             
             let categoryIcon: String = category.icon ?? categoryDefaultIcon
-            iconCategory.image = UIImage(systemName: categoryIcon)
+            if let image = UIImage(systemName: categoryIcon) {
+                iconCategory?.image = image
+            } else {
+
+                iconCategory.image = UIImage(systemName: categoryDefaultIcon)
+            }
 
             iconCategory.tintColor = .white
             

@@ -19,6 +19,8 @@ class SettingsTableViewController: UITableViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
         appSettings = loadAppSettings()
         loadSettings()
+        
+//        let tableViewHeader
     }
     
     func loadSettings(){

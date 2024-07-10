@@ -42,7 +42,8 @@ class TodoFormViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "primary") ?? .blue]
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: "categoryCell")
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: "CategorySelectorCell")
+
         createDatepicker()
         
         reload()
@@ -119,10 +120,24 @@ class TodoFormViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([btnDone], animated: true)
+        // Botão Cancelar
+        let btnCancel = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelPressed))
+        
+        // Espaçamento flexível entre os botões
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        // Botão Concluído
+        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePressed))
+        
+        // Adiciona os botões à toolbar
+        toolbar.setItems([btnCancel, flexibleSpace, btnDone], animated: true)
         
         return toolbar
+    }
+
+    @objc func cancelPressed() {
+        // Ação para o botão Cancelar
+        self.view.endEditing(true) // Simplesmente fecha o teclado
     }
     
     @objc func donePressed() {
@@ -215,13 +230,16 @@ extension TodoFormViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryTableViewCell else {
-            fatalError("Não foi possível instanciar a célula como CategoryTableViewCell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategorySelectorCell", for: indexPath)
         
         let category = categories[indexPath.row]
 
-        cell.set(category: category)
+        cell.imageView?.image = UIImage(systemName: category.icon!)
+        cell.imageView?.tintColor = .white
+        cell.textLabel?.text = category.name
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = category.color.uiColor()
+        
         return cell
     }
     

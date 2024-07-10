@@ -60,12 +60,18 @@ class TodoListTableViewController: UITableViewController {
                 self.tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         } else {
-            
-
             todoList = loadTodoList()
             filteredTodos = todoList.filter { !$0.isComplete }
+            
+            var row = 0
+            if appSettings.showCompletedTasks {
+                row = self.todoList.count-1
+            } else {
+                row = self.filteredTodos.count-1
+            }
+                
             tableView.beginUpdates()
-            let newIndexPath = IndexPath(row: self.todoList.count-1, section: 0)
+            let newIndexPath = IndexPath(row: row, section: 0)
             self.tableView.insertRows(at: [newIndexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -73,7 +79,7 @@ class TodoListTableViewController: UITableViewController {
     
     
     @objc func handleSettingsChange(){
-        print("Change config")
+//        print("Change config")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -89,10 +95,15 @@ class TodoListTableViewController: UITableViewController {
         todoList = loadTodoList()
         appSettings = loadAppSettings()
         categoryList = loadCategory()
+        
         filteredTodos = todoList.filter { !$0.isComplete }
         
         if appSettings.grupedByCategory {
-            groupedTodos = Dictionary(grouping: todoList, by: { $0.category.name })
+            if appSettings.showCompletedTasks {
+                groupedTodos = Dictionary(grouping: todoList, by: { $0.category.name })
+            } else {
+                groupedTodos = Dictionary(grouping: filteredTodos, by: { $0.category.name })
+            }
             categoryKeys = groupedTodos.keys.sorted()
             
             for (category, todos) in groupedTodos {
@@ -235,7 +246,6 @@ class TodoListTableViewController: UITableViewController {
             } else {
                 todo = filteredTodos[indexPath.row]
             }
-            
         }
         
         cell.set(todo: todo)
@@ -246,90 +256,120 @@ class TodoListTableViewController: UITableViewController {
     // MARK: Table View - delegate ##################
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "showTodo") as? TodoShowViewController {
             
-            if let vc = storyboard?.instantiateViewController(identifier: "showTodo") as? TodoShowViewController {
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = appSettings.defaultDateFormat
-           
-                let todo:Todo
-                if appSettings.grupedByCategory {
-                    let category = categoryKeys[indexPath.section]
-                    todo = groupedTodos[category]![indexPath.row]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = appSettings.defaultDateFormat
+            
+            let todo:Todo
+            if appSettings.grupedByCategory {
+                let category = categoryKeys[indexPath.section]
+                todo = groupedTodos[category]![indexPath.row]
+            } else {
+                if appSettings.showCompletedTasks{
+                    todo = todoList[indexPath.row]
                 } else {
-                    if appSettings.showCompletedTasks{
-                        todo = todoList[indexPath.row]
-                    } else {
-                        todo = filteredTodos[indexPath.row]
-                    }
+                    todo = filteredTodos[indexPath.row]
                 }
-//                print(todo)
-                
-                vc.showTitle = todo.title
-                vc.showDescription = todo.description
-                if todo.dueDate == nil {
-                    vc.showDueDate = ""
-                } else {
-                    vc.showDueDate = dateFormatter.string(from:todo.dueDate!)
-                }
-                
-                vc.showCreateAt = dateFormatter.string(from:todo.createAt)
-                
-                if todo.completedAt == nil {
-                    vc.showCompleteAt = ""
-                } else {
-                    vc.showCompleteAt = dateFormatter.string(from:todo.completedAt!)
-                }
-                vc.isImportant = todo.isImportant
-                vc.isComplete = todo.isComplete
-                vc.category = todo.category
-                self.navigationController?.pushViewController(vc, animated: true)
             }
-     
+            //                print(todo)
+            
+            vc.showTitle = todo.title
+            vc.showDescription = todo.description
+            if todo.dueDate == nil {
+                vc.showDueDate = ""
+            } else {
+                vc.showDueDate = dateFormatter.string(from:todo.dueDate!)
+            }
+            
+            vc.showCreateAt = dateFormatter.string(from:todo.createAt)
+            
+            if todo.completedAt == nil {
+                vc.showCompleteAt = ""
+            } else {
+                vc.showCompleteAt = dateFormatter.string(from:todo.completedAt!)
+            }
+            vc.isImportant = todo.isImportant
+            vc.isComplete = todo.isComplete
+            vc.category = todo.category
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !appSettings.showCompletedTasks {
+            if appSettings.grupedByCategory {
+                
+            } else {
+                filteredTodos = filteredTodos.filter { !$0.isComplete }
+            }
+        }
+        tableView.reloadData()
+    }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "Complete") { action, view, completionHandler in
+            
             tableView.beginUpdates()
             
             if self.appSettings.grupedByCategory {
                 let categoryKey = self.categoryKeys[indexPath.section]
                 if var todos = self.groupedTodos[categoryKey] {
                     let todo = todos[indexPath.row]
-
-                    if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
-                        self.todoList[todoListIndex].isComplete = true
-                        self.todoList[todoListIndex].completedAt = Date()
-                    }
-                    
-                    if !self.appSettings.showCompletedTasks {
-                        todos.remove(at: indexPath.row)
-                        if todos.isEmpty {
-                            self.groupedTodos.removeValue(forKey: categoryKey)
-                            self.categoryKeys = self.groupedTodos.keys.sorted()
-                            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
-                        } else {
-                            self.groupedTodos[categoryKey] = todos
-                            tableView.deleteRows(at: [indexPath], with: .automatic)
-                        }
-                    }
                 }
-            } else {
-                self.todoList[indexPath.row].isComplete = true
-                self.todoList[indexPath.row].completedAt = Date()
-                self.filteredTodos = self.todoList.filter { !$0.isComplete }
-                if !self.appSettings.showCompletedTasks {
-                    self.todoList.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
+                if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
+                    self.todoList[todoListIndex].isComplete = true
+                    self.todoList[todoListIndex].completedAt = Date()
                 }
             }
             
-            saveTodoList(self.todoList)
+//            if self.appSettings.grupedByCategory {
+//
+//                let categoryKey = self.categoryKeys[indexPath.section]
+//
+//                if var todos = self.groupedTodos[categoryKey] {
+//                    let todo = todos[indexPath.row]
+//
+//                    if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
+//                        self.todoList[todoListIndex].isComplete = true
+//                        self.todoList[todoListIndex].completedAt = Date()
+//                    }
+//
+//                    if !self.appSettings.showCompletedTasks {
+//                        todos.remove(at: indexPath.row)
+//                        if todos.isEmpty {
+//                            self.groupedTodos.removeValue(forKey: categoryKey)
+//                            self.categoryKeys = self.groupedTodos.keys.sorted()
+//                            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+//                        } else {
+//                            self.groupedTodos[categoryKey] = todos
+//                            tableView.deleteRows(at: [indexPath], with: .automatic)
+//                        }
+//                    }
+//                }
+//            } else {
+//                let todo = self.todoList[indexPath.row]
+//
+//                self.todoList[indexPath.row].isComplete = true
+//                self.todoList[indexPath.row].completedAt = Date()
+//                self.filteredTodos = self.todoList.filter { !$0.isComplete }
+//                if self.appSettings.showCompletedTasks {
+//                    self.todoList.remove(at: indexPath.row)
+//                    tableView.deleteRows(at: [indexPath], with: .fade)
+//                }
+//            }
+//
+//            saveTodoList(self.todoList)
             tableView.endUpdates()
+
             completionHandler(true)
         }
-        NotificationCenter.default.post(name: NSNotification.Name("SettingsHaveChanged"), object: nil)
-        action.backgroundColor = .systemGreen
+
+            action.backgroundColor = UIColor.systemGray
         return UISwipeActionsConfiguration(actions: [action])
     }
     
