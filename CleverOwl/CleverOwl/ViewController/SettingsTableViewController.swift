@@ -107,6 +107,13 @@ class SettingsTableViewController: UITableViewController {
 
                     self.present(alertController, animated: true, completion: nil)
                 }),
+            SettingsOption(title: "About", icon: UIImage(systemName: "person.fill"), iconBackgroundColor: .red, handler: {
+                if let vc = self.storyboard?.instantiateViewController(identifier: "categoryList") as? UITableViewController {
+                    let alert = UIAlertController(title: "About", message: "Developed by Rodrigo Bruner", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                }),
         ]))
     }
     

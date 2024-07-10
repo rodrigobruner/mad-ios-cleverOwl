@@ -314,62 +314,67 @@ class TodoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "Complete") { action, view, completionHandler in
             
+
             tableView.beginUpdates()
             
             if self.appSettings.grupedByCategory {
+                
                 let categoryKey = self.categoryKeys[indexPath.section]
+             
                 if var todos = self.groupedTodos[categoryKey] {
                     let todo = todos[indexPath.row]
+
+                    if !self.appSettings.showCompletedTasks {
+                        
+                        if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
+                            self.todoList[todoListIndex].isComplete = true
+                            self.todoList[todoListIndex].completedAt = Date()
+                        }
+                        
+                        todos.remove(at: indexPath.row)
+                        if todos.isEmpty {
+                            self.groupedTodos.removeValue(forKey: categoryKey)
+                            self.categoryKeys = self.groupedTodos.keys.sorted()
+                            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+                        } else {
+                            self.groupedTodos[categoryKey] = todos
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                        }
+                    } else{
+                        todos.remove(at: indexPath.row)
+                        if todos.isEmpty {
+                            self.groupedTodos.removeValue(forKey: categoryKey)
+                            self.categoryKeys = self.groupedTodos.keys.sorted()
+                            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+                        } else {
+                            self.groupedTodos[categoryKey] = todos
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                        }
+                    }
                 }
-                if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
-                    self.todoList[todoListIndex].isComplete = true
-                    self.todoList[todoListIndex].completedAt = Date()
+            } else {
+                let todo = self.todoList[indexPath.row]
+                if self.appSettings.showCompletedTasks {
+                    self.todoList[indexPath.row].isComplete = true
+                    self.todoList[indexPath.row].completedAt = Date()
+                } else {
+                    if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
+                        self.todoList[todoListIndex].isComplete = true
+                        self.todoList[todoListIndex].completedAt = Date()
+                    }
                 }
+                self.filteredTodos = self.todoList.filter { !$0.isComplete }
+                self.todoList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
             }
             
-//            if self.appSettings.grupedByCategory {
-//
-//                let categoryKey = self.categoryKeys[indexPath.section]
-//
-//                if var todos = self.groupedTodos[categoryKey] {
-//                    let todo = todos[indexPath.row]
-//
-//                    if let todoListIndex = self.todoList.firstIndex(where: { $0.uid == todo.uid }) {
-//                        self.todoList[todoListIndex].isComplete = true
-//                        self.todoList[todoListIndex].completedAt = Date()
-//                    }
-//
-//                    if !self.appSettings.showCompletedTasks {
-//                        todos.remove(at: indexPath.row)
-//                        if todos.isEmpty {
-//                            self.groupedTodos.removeValue(forKey: categoryKey)
-//                            self.categoryKeys = self.groupedTodos.keys.sorted()
-//                            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
-//                        } else {
-//                            self.groupedTodos[categoryKey] = todos
-//                            tableView.deleteRows(at: [indexPath], with: .automatic)
-//                        }
-//                    }
-//                }
-//            } else {
-//                let todo = self.todoList[indexPath.row]
-//
-//                self.todoList[indexPath.row].isComplete = true
-//                self.todoList[indexPath.row].completedAt = Date()
-//                self.filteredTodos = self.todoList.filter { !$0.isComplete }
-//                if self.appSettings.showCompletedTasks {
-//                    self.todoList.remove(at: indexPath.row)
-//                    tableView.deleteRows(at: [indexPath], with: .fade)
-//                }
-//            }
-//
-//            saveTodoList(self.todoList)
+            saveTodoList(self.todoList)
             tableView.endUpdates()
-
             completionHandler(true)
         }
-
-            action.backgroundColor = UIColor.systemGray
+        
+        action.backgroundColor = UIColor.systemGray
         return UISwipeActionsConfiguration(actions: [action])
     }
     
