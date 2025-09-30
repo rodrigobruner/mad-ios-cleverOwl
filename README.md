@@ -67,7 +67,7 @@ CleverOwl/
 ## 📥 Installation & Usage
 1. Clone the repo  
    ```bash
-   git clone https://github.com/your-username/cleverOwl.git
+   git clone https://github.com/rodrigobruner/cleverOwl.git
    ``
 2. Open CleverOwl.xcodeproj in Xcode
 3. Run on Simulator or physical iOS device (iOS 14+)
